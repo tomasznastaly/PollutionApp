@@ -2,6 +2,7 @@ import '../styles/App.css';
 import React, { Component } from 'react';
 import Header from './Header';
 import Cities from './Cities';
+import '../styles/Media.css';
 
 class App extends Component {
   state = {

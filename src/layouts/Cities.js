@@ -7,15 +7,21 @@ class Cities extends Component {
     }
     
     componentDidMount(){
-        const API = "https://api.openaq.org/v1/cities?order_by=count&sort=desc&limit=10&country=";
+        const API = "https://api.openaq.org/v1/latest?parameter=pm25&order_by=measurements[0].value&sort=desc&country=";
         const country = this.props.country;
         fetch(API + country)
             .then(response => response.json())
-            .then(data => this.setState(prevState => ({cities: prevState.cities.concat(data.results)})));
+            .catch(error => console.log('Error:', error))
+            .then(data => {
+                let cities = data.results.map(city => city.city);
+                cities = cities.filter((v,i) => cities.indexOf(v) === i)
+                cities = cities.slice(0, 10);
+                return this.setState({cities})
+            });
     }
 
     render() {
-        const CitiesList = [...this.state.cities].map((city, index) => <City name={city.city} key={index} id={index}/>)
+        const CitiesList = [...this.state.cities].map((city, index) => <City name={city} key={index} id={index}/>)
         return (
             <div id="accordion">
                {CitiesList} 

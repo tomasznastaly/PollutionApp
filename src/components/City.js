@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/City.css';
 
 class City extends Component {
     state = {
@@ -6,19 +7,18 @@ class City extends Component {
     }
     
     componentDidMount(){
-        const API = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=";
+        const API = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&indexpageids&titles=";
         const city = this.props.name;
         
-        fetch(API+city, {mode: "no-cors",
-        headers: {  
-            'Access-Control-Allow-Credentials' : true,  
-            'Access-Control-Allow-Origin': '*',  
-            'Access-Control-Allow-Methods':'GET',  
-            'Access-Control-Allow-Headers':'application/json',  
-             }
-        })
-          
-            .then(data => console.log(data))
+        fetch(API + city)
+            .then(response => response.json())
+            .catch(error => console.log('Error:', error))
+            .then(data => {
+                const pageids = data.query.pageids;
+                const pages = data.query.pages;
+                return this.setState({description: pages[pageids].extract })
+            })
+            
             
     }
 
@@ -36,7 +36,7 @@ class City extends Component {
 
                 <div id={`collapse${id}`} className="collapse" aria-labelledby={`heading${id}`} data-parent="#accordion">
                 <div className="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    {this.state.description ? this.state.description : "No Information" }
                 </div>
                 </div>
             </div>

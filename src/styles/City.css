@@ -1,0 +1,22 @@
+#accordion{
+    width: 50vw;
+    margin: 20px auto;
+}
+.card-header{
+    background-color: white;
+    border: 2px solid rgb(38, 136, 95);
+}
+.btn{
+    color: rgb(38, 136, 95);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.btn:hover{
+    color: rgb(38, 136, 95);
+}
+.card-body{
+    background-color: rgb(91, 196, 152);
+    color:white;
+    font-weight: 600;
+    font-size:.9rem;
+}
