@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PollutionApp/static/css/main.60e7ca09.chunk.css",
+    "main.js": "/PollutionApp/static/js/main.601d7b98.chunk.js",
+    "main.js.map": "/PollutionApp/static/js/main.601d7b98.chunk.js.map",
+    "runtime~main.js": "/PollutionApp/static/js/runtime~main.4b40fbec.js",
+    "runtime~main.js.map": "/PollutionApp/static/js/runtime~main.4b40fbec.js.map",
+    "static/js/2.6408f43b.chunk.js": "/PollutionApp/static/js/2.6408f43b.chunk.js",
+    "static/js/2.6408f43b.chunk.js.map": "/PollutionApp/static/js/2.6408f43b.chunk.js.map",
+    "index.html": "/PollutionApp/index.html",
+    "precache-manifest.58e9406f7fc0879b48de6273de743281.js": "/PollutionApp/precache-manifest.58e9406f7fc0879b48de6273de743281.js",
+    "service-worker.js": "/PollutionApp/service-worker.js",
+    "static/css/main.60e7ca09.chunk.css.map": "/PollutionApp/static/css/main.60e7ca09.chunk.css.map"
+  }
+}
